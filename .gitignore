@@ -1,12 +1,18 @@
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+
 # Secrets and local config
 .env
 .env.*
+!.env.example
 
-# Local paper artifacts and large/copyrighted files
+# Local extraction outputs and large/copyrighted PDFs
 papers/*.pdf
 papers/*.txt
 papers/*.md
-!papers/README.md
 
 # OS/editor
 .DS_Store
