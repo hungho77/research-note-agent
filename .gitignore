@@ -1,0 +1,14 @@
+# Secrets and local config
+.env
+.env.*
+
+# Local paper artifacts and large/copyrighted files
+papers/*.pdf
+papers/*.txt
+papers/*.md
+!papers/README.md
+
+# OS/editor
+.DS_Store
+.vscode/
+.idea/
