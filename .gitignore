@@ -1,20 +1,10 @@
-# Python
-__pycache__/
-*.py[cod]
-.venv/
-venv/
-
-# Secrets and local config
-.env
-.env.*
-!.env.example
-
-# Local extraction outputs and large/copyrighted PDFs
-papers/*.pdf
-papers/*.txt
-papers/*.md
-
-# OS/editor
 .DS_Store
-.vscode/
-.idea/
+.cache/
+*.aux
+*.fdb_latexmk
+*.fls
+*.log
+*.out
+*.synctex.gz
+*.toc
+

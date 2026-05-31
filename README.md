@@ -1,108 +1,54 @@
-# research-note-agent
+# Paper Reading Project
 
-`research-note-agent` is a small workflow repository for turning research PDFs into structured Markdown notes and publishing concise notes plus detailed investigation pages to Notion.
+This workspace is for reading research papers and turning each paper into a clear technical note.
 
-## What this repository does
+## Goal
 
-1. Stores research papers in `papers/`.
-2. Extracts PDF text content with `scripts/extract_pdf.py`.
-3. Generates structured research notes in `notes/` with `scripts/generate_note.py`.
-4. Writes concise notes to a configured Notion parent page with `scripts/publish_to_notion.py`.
-5. Creates detailed investigation subpages in Notion from the full Markdown note.
+For every paper, capture:
 
-## Repository structure
+- The real pain point or research problem the paper addresses.
+- The key idea and main contributions.
+- The method, assumptions, and important design choices.
+- The evidence: datasets, metrics, baselines, ablations, and results.
+- The limitations, weak points, and failure cases.
+- The practical value: when the paper is useful and when it is not.
+- Follow-up ideas for experiments, implementation, or future research.
+
+## Folder Workflow
+
+- `Unread/`: papers waiting to be reviewed.
+- `Read/`: papers already reviewed.
+- `notes/`: one note per reviewed paper.
+- `assets/figures/`: original diagrams used inside blog-style notes.
+- `templates/`: reusable Markdown and LaTeX templates.
+
+## Reading Process
+
+1. Skim the abstract, introduction, figures, and conclusion.
+2. Write the paper's pain point in one or two sentences.
+3. Identify the main contribution, not just the model name.
+4. Map the method: inputs, outputs, architecture, training objective, and evaluation setup.
+5. Check whether the experiments actually support the claims.
+6. List limitations and unclear assumptions.
+7. Decide whether the paper is worth implementing, citing, or only remembering.
+
+## Recommended Note Names
+
+Use this pattern:
 
 ```text
-papers/      # local PDFs and paper assets; PDFs are ignored by default
-notes/       # generated or curated Markdown research notes
-scripts/     # extraction, note generation, and Notion publishing scripts
-prompts/     # prompt templates used by generation scripts
-notes/read-paper-template.md  # reusable manual reading-note template
-README.md    # project documentation
-requirements.txt
-.env.example
+notes/YYYY-MM-DD_short-paper-title.md
 ```
 
-## Setup
+For a polished report, copy `templates/paper-review-template.tex` and fill it in.
 
-Create a virtual environment and install dependencies:
+## Illustrated Blog Notes
 
-```bash
-python -m venv .venv
-source .venv/bin/activate
-pip install -r requirements.txt
-```
+Use `notes/2026-05-31_transformer-illustrated.md` as an example for blog-style paper notes with embedded figures.
 
-Copy the example environment file and fill in local secrets:
+Recommended flow:
 
-```bash
-cp .env.example .env
-```
-
-Required environment variables:
-
-- `OPENAI_API_KEY`: API key used by `scripts/generate_note.py`.
-- `NOTION_TOKEN`: Notion integration token used by `scripts/publish_to_notion.py`.
-- `NOTION_PARENT_PAGE_ID`: parent page where notes and investigation subpages are created.
-- `NOTION_PARENT_PAGE_URL`: optional alternative to `NOTION_PARENT_PAGE_ID`; useful when copying a Notion page link.
-
-Do not commit `.env` or any real credentials.
-
-## Usage
-
-### 1. Add a paper locally
-
-Place a PDF in `papers/`. PDF files are ignored by default to avoid accidentally committing copyrighted content.
-
-### 2. Extract PDF content
-
-```bash
-python scripts/extract_pdf.py papers/example.pdf --output papers/example.txt
-```
-
-### 3. Start from the reading-note template
-
-For manual paper reading, copy the reusable template first:
-
-```bash
-cp notes/read-paper-template.md notes/attention-is-all-you-need.md
-```
-
-Fill in the metadata, research questions, implementation track, optimization track, and `## Notion concise note` section before publishing. The template is designed for repeated paper reading and for Notion publishing.
-
-### 4. Generate a structured note
-
-```bash
-python scripts/generate_note.py papers/example.txt --output notes/example.md
-```
-
-By default, the script uses the prompt template in `prompts/research_note.md` and the model from `OPENAI_MODEL` or `gpt-4.1-mini`. For reading notes that follow the manual template more closely, pass `--prompt prompts/read_paper_note.md`.
-
-### 5. Publish to Notion
-
-```bash
-python scripts/publish_to_notion.py notes/example.md
-```
-
-To target a copied Notion page link directly, pass it as `--parent-page`:
-
-```bash
-python scripts/publish_to_notion.py notes/example.md --parent-page "https://app.notion.com/p/Paper-Notes-xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx?source=copy_link"
-```
-
-To write the concise note directly into that existing parent page and create the detailed investigation as a subpage beneath it, add `--append-to-parent`:
-
-```bash
-python scripts/publish_to_notion.py notes/example.md --parent-page "https://app.notion.com/p/Paper-Notes-xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx?source=copy_link" --append-to-parent
-```
-
-Without `--append-to-parent`, the publisher creates:
-
-- a concise child page under the configured parent page, based on the `## Notion concise note` section when present; and
-- a detailed investigation subpage containing the full Markdown note.
-
-## Security notes
-
-- Never commit `NOTION_TOKEN`, `NOTION_PARENT_PAGE_ID`, `OPENAI_API_KEY`, or `.env`.
-- Review generated notes before publishing them to Notion.
-- Confirm you have permission before storing or sharing PDFs.
+1. Explain the problem in plain language.
+2. Add one original diagram for the core idea.
+3. Explain the diagram before adding equations or implementation details.
+4. Keep figures in `assets/figures/<paper-name>/` and link them from the note.

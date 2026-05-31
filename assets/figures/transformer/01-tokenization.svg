@@ -1,0 +1,104 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="720" viewBox="0 0 1200 720" role="img" aria-labelledby="title desc">
+  <title id="title">Tokenizer flow for a Transformer</title>
+  <desc id="desc">A clean three-step diagram showing raw text becoming tokens and model inputs.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#f8fbff"/>
+      <stop offset="55%" stop-color="#eef8f3"/>
+      <stop offset="100%" stop-color="#fff7ed"/>
+    </linearGradient>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="12" stdDeviation="14" flood-color="#172033" flood-opacity="0.14"/>
+    </filter>
+    <marker id="arrow" markerWidth="13" markerHeight="13" refX="11" refY="6.5" orient="auto">
+      <path d="M2 2 L11 6.5 L2 11 Z" fill="#2563eb"/>
+    </marker>
+    <style>
+      text { font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; fill: #172033; }
+      .title { font-size: 34px; font-weight: 780; }
+      .subtitle { font-size: 17px; fill: #637086; }
+      .step { font-size: 18px; font-weight: 760; }
+      .small { font-size: 14px; fill: #637086; }
+      .tiny { font-size: 12px; fill: #637086; }
+      .mono { font-family: "SFMono-Regular", Consolas, monospace; font-size: 15px; }
+      .card { fill: #ffffff; stroke: #dce6f0; stroke-width: 1.4; filter: url(#shadow); }
+      .inner { fill: #f8fbff; stroke: #dce6f0; stroke-width: 1.2; }
+      .arrow { stroke: #2563eb; stroke-width: 3.5; fill: none; marker-end: url(#arrow); }
+      .chip { stroke: #ffffff; stroke-width: 2; }
+    </style>
+  </defs>
+
+  <rect width="1200" height="720" rx="40" fill="url(#bg)"/>
+  <text x="72" y="76" class="title">Text becomes a sequence before the model sees it</text>
+  <text x="72" y="110" class="subtitle">Tokenization converts raw text into stable ids, positions, and masks.</text>
+
+  <g transform="translate(82 170)">
+    <rect width="300" height="310" rx="24" class="card"/>
+    <text x="150" y="45" text-anchor="middle" class="step">1. Raw text</text>
+    <rect x="42" y="82" width="216" height="54" rx="14" fill="#eff6ff" stroke="#bfdbfe"/>
+    <text x="150" y="116" text-anchor="middle" class="mono">"The cat sat"</text>
+    <rect x="42" y="154" width="216" height="54" rx="14" fill="#fff7ed" stroke="#fed7aa"/>
+    <text x="150" y="188" text-anchor="middle" class="mono">"on the mat."</text>
+    <text x="150" y="250" text-anchor="middle" class="small">Prompt, document, code, label</text>
+    <text x="150" y="274" text-anchor="middle" class="tiny">everything starts as plain text</text>
+  </g>
+
+  <path d="M404 325 H444" class="arrow"/>
+
+  <g transform="translate(462 170)">
+    <rect width="300" height="310" rx="24" class="card"/>
+    <text x="150" y="45" text-anchor="middle" class="step">2. Tokenizer</text>
+    <rect x="58" y="88" width="184" height="94" rx="20" fill="#ecfdf5" stroke="#a7f3d0" stroke-width="1.4"/>
+    <text x="150" y="126" text-anchor="middle" font-size="19" font-weight="760" fill="#065f46">BPE / unigram</text>
+    <text x="150" y="154" text-anchor="middle" class="small">split into known pieces</text>
+    <rect x="36" y="218" width="228" height="42" rx="12" class="inner"/>
+    <text x="150" y="245" text-anchor="middle" class="mono">&lt;bos&gt; The cat sat ...</text>
+  </g>
+
+  <path d="M784 325 H824" class="arrow"/>
+
+  <g transform="translate(842 170)">
+    <rect width="276" height="310" rx="24" class="card"/>
+    <text x="138" y="45" text-anchor="middle" class="step">3. Model inputs</text>
+    <text x="42" y="91" class="small">Token ids</text>
+    <g transform="translate(42 106)">
+      <rect width="46" height="40" rx="10" fill="#dbeafe" class="chip"/>
+      <rect x="54" width="46" height="40" rx="10" fill="#dcfce7" class="chip"/>
+      <rect x="108" width="54" height="40" rx="10" fill="#ffedd5" class="chip"/>
+      <rect x="170" width="46" height="40" rx="10" fill="#f5d0fe" class="chip"/>
+      <text x="23" y="26" text-anchor="middle" class="mono">1</text>
+      <text x="77" y="26" text-anchor="middle" class="mono">464</text>
+      <text x="135" y="26" text-anchor="middle" class="mono">3797</text>
+      <text x="193" y="26" text-anchor="middle" class="mono">275</text>
+    </g>
+    <text x="42" y="196" class="small">Positions</text>
+    <g transform="translate(42 210)">
+      <rect width="46" height="36" rx="9" class="inner"/>
+      <rect x="54" width="46" height="36" rx="9" class="inner"/>
+      <rect x="108" width="46" height="36" rx="9" class="inner"/>
+      <rect x="162" width="46" height="36" rx="9" class="inner"/>
+      <text x="23" y="24" text-anchor="middle" class="mono">0</text>
+      <text x="77" y="24" text-anchor="middle" class="mono">1</text>
+      <text x="131" y="24" text-anchor="middle" class="mono">2</text>
+      <text x="185" y="24" text-anchor="middle" class="mono">3</text>
+    </g>
+  </g>
+
+  <g transform="translate(148 545)">
+    <rect width="904" height="92" rx="24" class="card"/>
+    <text x="34" y="38" class="step">Packed training row</text>
+    <text x="34" y="66" class="small">Packed into masked GPU batches.</text>
+    <g transform="translate(498 25)">
+      <rect width="58" height="40" rx="11" fill="#dbeafe" class="chip"/>
+      <rect x="66" width="58" height="40" rx="11" fill="#dcfce7" class="chip"/>
+      <rect x="132" width="58" height="40" rx="11" fill="#ffedd5" class="chip"/>
+      <rect x="198" width="58" height="40" rx="11" fill="#fde68a" class="chip"/>
+      <rect x="264" width="58" height="40" rx="11" fill="#f5d0fe" class="chip"/>
+      <text x="29" y="25" text-anchor="middle" class="tiny">doc A</text>
+      <text x="95" y="25" text-anchor="middle" class="tiny">doc A</text>
+      <text x="161" y="25" text-anchor="middle" class="tiny">doc B</text>
+      <text x="227" y="25" text-anchor="middle" class="tiny">doc B</text>
+      <text x="293" y="25" text-anchor="middle" class="tiny">pad</text>
+    </g>
+  </g>
+</svg>

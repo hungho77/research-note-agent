@@ -1,0 +1,118 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="720" viewBox="0 0 1200 720" role="img" aria-labelledby="title desc">
+  <title id="title">Token embedding lookup</title>
+  <desc id="desc">A clean diagram showing token ids indexing an embedding table and producing input vectors.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#fcfbff"/>
+      <stop offset="50%" stop-color="#eef7ff"/>
+      <stop offset="100%" stop-color="#effbf3"/>
+    </linearGradient>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="12" stdDeviation="14" flood-color="#172033" flood-opacity="0.14"/>
+    </filter>
+    <marker id="arrow" markerWidth="13" markerHeight="13" refX="11" refY="6.5" orient="auto">
+      <path d="M2 2 L11 6.5 L2 11 Z" fill="#0f766e"/>
+    </marker>
+    <style>
+      text { font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; fill: #172033; }
+      .title { font-size: 34px; font-weight: 780; }
+      .subtitle { font-size: 17px; fill: #637086; }
+      .step { font-size: 18px; font-weight: 760; }
+      .small { font-size: 14px; fill: #637086; }
+      .tiny { font-size: 12px; fill: #637086; }
+      .mono { font-family: "SFMono-Regular", Consolas, monospace; font-size: 15px; }
+      .card { fill: #ffffff; stroke: #dce6f0; stroke-width: 1.4; filter: url(#shadow); }
+      .arrow { stroke: #0f766e; stroke-width: 3.5; fill: none; marker-end: url(#arrow); }
+      .cell { stroke: #ffffff; stroke-width: 2; }
+    </style>
+  </defs>
+
+  <rect width="1200" height="720" rx="40" fill="url(#bg)"/>
+  <text x="72" y="76" class="title">Embedding lookup turns ids into vectors</text>
+  <text x="72" y="110" class="subtitle">Each token id selects one learned row from the embedding table.</text>
+
+  <g transform="translate(90 170)">
+    <rect width="270" height="390" rx="24" class="card"/>
+    <text x="135" y="46" text-anchor="middle" class="step">Token ids</text>
+    <text x="135" y="76" text-anchor="middle" class="small">one training example</text>
+    <g transform="translate(50 124)">
+      <rect width="54" height="46" rx="12" fill="#dbeafe" class="cell"/>
+      <rect x="62" width="54" height="46" rx="12" fill="#dcfce7" class="cell"/>
+      <rect x="124" width="64" height="46" rx="12" fill="#ffedd5" class="cell"/>
+      <rect x="31" y="64" width="54" height="46" rx="12" fill="#f5d0fe" class="cell"/>
+      <rect x="101" y="64" width="54" height="46" rx="12" fill="#fde68a" class="cell"/>
+      <text x="27" y="30" text-anchor="middle" class="mono">1</text>
+      <text x="89" y="30" text-anchor="middle" class="mono">464</text>
+      <text x="156" y="30" text-anchor="middle" class="mono">3797</text>
+      <text x="58" y="94" text-anchor="middle" class="mono">275</text>
+      <text x="128" y="94" text-anchor="middle" class="mono">13</text>
+    </g>
+    <rect x="42" y="292" width="186" height="54" rx="14" fill="#f8fbff" stroke="#dce6f0"/>
+    <text x="135" y="326" text-anchor="middle" class="mono">shape [T]</text>
+  </g>
+
+  <path d="M382 365 H430" class="arrow"/>
+
+  <g transform="translate(450 145)">
+    <rect width="300" height="440" rx="24" class="card"/>
+    <text x="150" y="48" text-anchor="middle" class="step">Embedding table</text>
+    <text x="150" y="78" text-anchor="middle" class="small">rows are learned parameters</text>
+    <text x="150" y="116" text-anchor="middle" class="tiny">vocab size x d_model</text>
+    <g transform="translate(58 145)">
+      <text x="92" y="-16" text-anchor="middle" class="tiny">d_model</text>
+      <text x="-18" y="24" text-anchor="end" class="tiny">1</text>
+      <text x="-18" y="68" text-anchor="end" class="tiny">464</text>
+      <text x="-18" y="112" text-anchor="end" class="tiny">3797</text>
+      <text x="-18" y="156" text-anchor="end" class="tiny">275</text>
+      <text x="-18" y="200" text-anchor="end" class="tiny">13</text>
+      <rect width="44" height="34" fill="#bfdbfe" class="cell"/>
+      <rect x="44" width="44" height="34" fill="#93c5fd" class="cell"/>
+      <rect x="88" width="44" height="34" fill="#dbeafe" class="cell"/>
+      <rect x="132" width="44" height="34" fill="#60a5fa" class="cell"/>
+      <rect x="176" width="44" height="34" fill="#bfdbfe" class="cell"/>
+      <rect y="44" width="44" height="34" fill="#bbf7d0" class="cell"/>
+      <rect x="44" y="44" width="44" height="34" fill="#86efac" class="cell"/>
+      <rect x="88" y="44" width="44" height="34" fill="#dcfce7" class="cell"/>
+      <rect x="132" y="44" width="44" height="34" fill="#4ade80" class="cell"/>
+      <rect x="176" y="44" width="44" height="34" fill="#bbf7d0" class="cell"/>
+      <rect y="88" width="44" height="34" fill="#fed7aa" class="cell"/>
+      <rect x="44" y="88" width="44" height="34" fill="#fdba74" class="cell"/>
+      <rect x="88" y="88" width="44" height="34" fill="#ffedd5" class="cell"/>
+      <rect x="132" y="88" width="44" height="34" fill="#fb923c" class="cell"/>
+      <rect x="176" y="88" width="44" height="34" fill="#fed7aa" class="cell"/>
+      <rect y="132" width="44" height="34" fill="#f5d0fe" class="cell"/>
+      <rect x="44" y="132" width="44" height="34" fill="#e879f9" class="cell"/>
+      <rect x="88" y="132" width="44" height="34" fill="#fae8ff" class="cell"/>
+      <rect x="132" y="132" width="44" height="34" fill="#d946ef" class="cell"/>
+      <rect x="176" y="132" width="44" height="34" fill="#f5d0fe" class="cell"/>
+      <rect y="176" width="44" height="34" fill="#fde68a" class="cell"/>
+      <rect x="44" y="176" width="44" height="34" fill="#fbbf24" class="cell"/>
+      <rect x="88" y="176" width="44" height="34" fill="#fef3c7" class="cell"/>
+      <rect x="132" y="176" width="44" height="34" fill="#f59e0b" class="cell"/>
+      <rect x="176" y="176" width="44" height="34" fill="#fde68a" class="cell"/>
+    </g>
+    <text x="150" y="402" text-anchor="middle" class="mono">E[token_id] -&gt; vector</text>
+  </g>
+
+  <path d="M772 365 H820" class="arrow"/>
+
+  <g transform="translate(840 170)">
+    <rect width="270" height="390" rx="24" class="card"/>
+    <text x="135" y="46" text-anchor="middle" class="step">Input matrix</text>
+    <text x="135" y="76" text-anchor="middle" class="small">one vector per position</text>
+    <g transform="translate(60 100)">
+      <rect width="150" height="30" rx="9" fill="#bfdbfe"/>
+      <rect y="44" width="150" height="30" rx="9" fill="#86efac"/>
+      <rect y="88" width="150" height="30" rx="9" fill="#fdba74"/>
+      <rect y="132" width="150" height="30" rx="9" fill="#e879f9"/>
+      <rect y="176" width="150" height="30" rx="9" fill="#fbbf24"/>
+      <text x="75" y="21" text-anchor="middle" class="tiny">x[0]</text>
+      <text x="75" y="65" text-anchor="middle" class="tiny">x[1]</text>
+      <text x="75" y="109" text-anchor="middle" class="tiny">x[2]</text>
+      <text x="75" y="153" text-anchor="middle" class="tiny">x[3]</text>
+      <text x="75" y="197" text-anchor="middle" class="tiny">x[4]</text>
+    </g>
+    <rect x="42" y="322" width="186" height="54" rx="14" fill="#f8fbff" stroke="#dce6f0"/>
+    <text x="135" y="356" text-anchor="middle" class="mono">shape [T, d_model]</text>
+  </g>
+</svg>
