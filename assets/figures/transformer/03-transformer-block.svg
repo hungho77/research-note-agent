@@ -86,7 +86,7 @@
   <path d="M734 449 H792" class="line"/>
   <circle cx="820" cy="449" r="25" fill="#fff7ed" stroke="#fdba74" stroke-width="1.7"/>
   <text x="820" y="458" text-anchor="middle" class="step">+</text>
-  <path d="M288 422 C402 362, 700 362, 812 422" class="skip"/>
+  <path d="M255 476 C340 540, 728 540, 820 474" class="skip"/>
   <path d="M846 449 H910" class="line"/>
   <g transform="translate(928 422)">
     <rect width="70" height="54" rx="14" fill="#e0f2fe" stroke="#7dd3fc" class="box"/>
