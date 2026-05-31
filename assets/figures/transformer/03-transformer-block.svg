@@ -18,7 +18,7 @@
     </marker>
     <style>
       text { font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; fill: #172033; }
-      .title { font-size: 34px; font-weight: 780; }
+      .title { font-size: 31px; font-weight: 780; }
       .subtitle { font-size: 17px; fill: #637086; }
       .step { font-size: 18px; font-weight: 760; }
       .small { font-size: 14px; fill: #637086; }
@@ -39,29 +39,30 @@
   <text x="116" y="198" class="step">Pre-norm decoder block</text>
   <text x="116" y="226" class="small">Input and output keep the same [T, d_model] shape.</text>
 
-  <g transform="translate(130 276)">
+  <g transform="translate(130 302)">
     <rect width="70" height="54" rx="14" fill="#e0f2fe" stroke="#7dd3fc" class="box"/>
     <text x="35" y="35" text-anchor="middle" class="mono">x</text>
   </g>
-  <path d="M208 303 H268" class="line"/>
-  <g transform="translate(286 256)">
+  <path d="M208 329 H268" class="line"/>
+  <g transform="translate(286 282)">
     <rect width="132" height="94" rx="18" fill="#eff6ff" stroke="#93c5fd" class="box"/>
     <text x="66" y="40" text-anchor="middle" class="step">Norm</text>
     <text x="66" y="68" text-anchor="middle" class="small">scale stable</text>
   </g>
-  <path d="M426 303 H486" class="line"/>
-  <g transform="translate(504 244)">
+  <path d="M426 329 H486" class="line"/>
+  <g transform="translate(504 270)">
     <rect width="162" height="118" rx="20" fill="#ecfdf5" stroke="#86efac" class="box"/>
     <text x="81" y="46" text-anchor="middle" class="step">Attention</text>
     <text x="81" y="76" text-anchor="middle" class="small">mix tokens</text>
   </g>
-  <path d="M674 303 H732" class="line"/>
-  <circle cx="760" cy="303" r="25" fill="#fff7ed" stroke="#fdba74" stroke-width="1.7"/>
-  <text x="760" y="312" text-anchor="middle" class="step">+</text>
-  <path d="M200 274 C320 204, 632 204, 750 276" class="skip"/>
-  <text x="475" y="198" text-anchor="middle" class="small">residual connection</text>
-  <path d="M786 303 H850" class="line"/>
-  <g transform="translate(868 276)">
+  <path d="M674 329 H732" class="line"/>
+  <circle cx="760" cy="329" r="25" fill="#fff7ed" stroke="#fdba74" stroke-width="1.7"/>
+  <text x="760" y="338" text-anchor="middle" class="step">+</text>
+  <path d="M200 302 C350 242, 615 242, 684 260 C710 270, 730 287, 750 302" class="skip"/>
+  <rect x="388" y="232" width="174" height="28" rx="14" fill="#ffffff" opacity="0.94"/>
+  <text x="475" y="252" text-anchor="middle" class="small">residual connection</text>
+  <path d="M786 329 H850" class="line"/>
+  <g transform="translate(868 302)">
     <rect width="70" height="54" rx="14" fill="#fef3c7" stroke="#fbbf24" class="box"/>
     <text x="35" y="35" text-anchor="middle" class="mono">h</text>
   </g>

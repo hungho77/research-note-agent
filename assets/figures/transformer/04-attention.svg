@@ -107,12 +107,16 @@
     <rect x="42" y="242" width="30" height="18" rx="9" fill="#1d4ed8"/>
   </g>
 
-  <path d="M1040 525 C960 610, 622 616, 540 528" class="line"/>
-  <path d="M555 430 C590 470, 600 510, 600 540" class="blue"/>
+  <path d="M1041 512 C1008 566, 904 586, 838 586" class="line"/>
+  <rect x="899" y="552" width="72" height="24" rx="12" fill="#ffffff" opacity="0.94"/>
+  <text x="935" y="570" text-anchor="middle" class="tiny">weights</text>
+  <path d="M555 430 C600 472, 612 506, 612 540" class="blue"/>
+  <rect x="604" y="478" width="58" height="24" rx="12" fill="#ffffff" opacity="0.94"/>
+  <text x="620" y="496" class="tiny">values</text>
 
   <g transform="translate(374 548)">
-    <rect width="452" height="70" rx="20" class="card"/>
-    <text x="226" y="30" text-anchor="middle" class="step">Weighted value sum</text>
-    <text x="226" y="55" text-anchor="middle" class="mono">softmax(scores) * V</text>
+    <rect width="452" height="86" rx="20" class="card"/>
+    <text x="226" y="34" text-anchor="middle" class="step">Weighted value sum</text>
+    <text x="226" y="62" text-anchor="middle" class="mono">softmax(scores) * V</text>
   </g>
 </svg>

@@ -44,11 +44,11 @@
     <g transform="translate(140 225)">
       <circle r="96" class="ring"/>
       <line x1="-112" y1="0" x2="112" y2="0" class="axis"/>
-      <line x1="0" y1="112" x2="0" y2="-112" class="axis"/>
+      <line x1="0" y1="96" x2="0" y2="-112" class="axis"/>
       <path d="M0 0 L74 -52" class="vec"/>
       <text x="86" y="-55" class="mono">q</text>
     </g>
-    <text x="140" y="338" text-anchor="middle" class="tiny">same vector length</text>
+    <text x="140" y="348" text-anchor="middle" class="tiny">same vector length</text>
   </g>
 
   <path d="M390 355 H438" class="flow"/>
@@ -67,7 +67,7 @@
       <text x="27" y="-12" text-anchor="middle" class="tiny">low</text>
       <text x="159" y="58" text-anchor="middle" class="tiny">high</text>
     </g>
-    <text x="140" y="338" text-anchor="middle" class="mono">theta = pos * freq</text>
+    <text x="140" y="350" text-anchor="middle" class="mono">theta = pos * freq</text>
   </g>
 
   <path d="M760 355 H808" class="flow"/>
@@ -79,12 +79,12 @@
     <g transform="translate(140 225)">
       <circle r="96" class="ring"/>
       <line x1="-112" y1="0" x2="112" y2="0" class="axis"/>
-      <line x1="0" y1="112" x2="0" y2="-112" class="axis"/>
+      <line x1="0" y1="96" x2="0" y2="-112" class="axis"/>
       <path d="M0 0 L46 -86" class="vec2"/>
       <path d="M74 -52 C82 -68, 72 -86, 48 -96" stroke="#c4b5fd" stroke-width="2" fill="none" stroke-dasharray="6 7"/>
       <text x="55" y="-91" class="mono">q'</text>
     </g>
-    <text x="140" y="338" text-anchor="middle" class="tiny">dot product now depends on distance</text>
+    <text x="140" y="348" text-anchor="middle" class="tiny">dot product now depends on distance</text>
   </g>
 
   <rect x="228" y="600" width="744" height="58" rx="18" fill="#ffffff" stroke="#dce6f0"/>
