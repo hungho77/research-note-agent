@@ -29,6 +29,7 @@
       .ring { fill: none; stroke: #ddd6fe; stroke-width: 2; }
       .vec { stroke: #7c3aed; stroke-width: 4.2; fill: none; marker-end: url(#arrow); }
       .vec2 { stroke: #0f766e; stroke-width: 4.2; fill: none; marker-end: url(#greenArrow); }
+      .oldvec { stroke: #7c3aed; stroke-width: 3.2; fill: none; stroke-dasharray: 7 8; opacity: 0.38; }
       .flow { stroke: #7c3aed; stroke-width: 3.5; fill: none; marker-end: url(#arrow); }
     </style>
   </defs>
@@ -77,12 +78,14 @@
     <text x="140" y="48" text-anchor="middle" class="step">After RoPE</text>
     <text x="140" y="78" text-anchor="middle" class="small">same length, new angle</text>
     <g transform="translate(140 225)">
-      <circle r="96" class="ring"/>
-      <line x1="-112" y1="0" x2="112" y2="0" class="axis"/>
-      <line x1="0" y1="96" x2="0" y2="-112" class="axis"/>
-      <path d="M0 0 L46 -86" class="vec2"/>
-      <path d="M74 -52 C82 -68, 72 -86, 48 -96" stroke="#c4b5fd" stroke-width="2" fill="none" stroke-dasharray="6 7"/>
-      <text x="55" y="-91" class="mono">q'</text>
+      <circle r="92" class="ring"/>
+      <line x1="-106" y1="0" x2="106" y2="0" class="axis"/>
+      <line x1="0" y1="92" x2="0" y2="-106" class="axis"/>
+      <path d="M0 0 L70 -50" class="oldvec"/>
+      <path d="M0 0 L52 -80" class="vec2"/>
+      <text x="78" y="-42" text-anchor="middle" class="tiny" style="fill:#7c3aed; opacity:0.7">q</text>
+      <rect x="66" y="-102" width="42" height="28" rx="14" fill="#ffffff" opacity="0.94"/>
+      <text x="87" y="-82" text-anchor="middle" class="mono">q'</text>
     </g>
     <text x="140" y="348" text-anchor="middle" class="tiny">dot product now depends on distance</text>
   </g>
